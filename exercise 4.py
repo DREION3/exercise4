@@ -1,4 +1,3 @@
-#Question 4-l Lesson 6 and 7
 # Question 1: Using a for loop with a list
 
 # TODO: Create a list of fruits
@@ -15,16 +14,16 @@ for x in fruits:
 # Question 2: Using a while loop for countdown
 
 # TODO: Use a while loop to create a countdown from 5 to 1
-from random import random
-import time
 
-countdown= 5
-start_time= time.time()
-elapsed_time= 0
-while (remaining_time := countdown - elapsed_time) >0:
-    print(f'Countdown: {int(remaining_time)} seconds remaining')
-    time.sleep(1) #wait for 1 second 
-    elapsed_time = time.time() - start_time
+
+from operator import mul
+import time                                                 # is a built-in Python module.  allows for a certain amount of time between two specific functions
+
+countdown = 5                                               # the countdown function is code that allows for numbers to be counted backwards from the starting point(usually  the highest value ) until 0 
+while countdown >0:                                         # before running code, the programme checks if this statement is true 
+    print(f' countdown: {countdown} seconds remaining')
+    time.sleep (1)                                          # wait for 1 second #time.sleep means that the code will stop the time for however much time you have input; in this case, the time will stop by 1 second 
+    countdown -= 1                                          #reliably decrement by 1 each time   # this basically tells the code to wait 1 second only in between each number
 
 
 #-------------------------------------------------------------------------
@@ -32,8 +31,8 @@ while (remaining_time := countdown - elapsed_time) >0:
 
 # TODO: Use a for loop to print the first 10 square numbers
 for i in range(1, 11):
-    sq= i * i
-    print(sq, end=" ")  
+    sq= i * 2
+    print(sq)  
 
     
 
@@ -47,16 +46,15 @@ for i in range(1, 11):
 # TODO: Use a for loop to select and print 3 random colors from the list
 
 import random
-class random_colours:
-        ...
-
-coulours= ('Blue', 'Pink', 'Green', 'Black', 'Purple', 'Red', 'Yellow')
+colours= ('Blue', 'Pink', 'Green', 'Black', 'Purple', 'Red', 'Yellow')
 
 
 
-for _ in range (3):
-    random_colour= random.choice (coulours)
-    print( random_colours)
+
+random_colours= random.sample (colours, k=3)
+
+for colours in random_colours:
+    print(colours)
 
     
 #-------------------------------------------------------------------------
@@ -81,6 +79,31 @@ def divide(a, b):
 """
 
 # TODO: Import the custom module and use its functions
+import math_operations
+print(math_operations.add(13, 7))
+
 
 
 # TODO: Use a while loop to create a simple calculator
+
+print("Please select operation -\n"
+      "1. Add\n"
+      "2. Subtract\n"
+      "3. Multiply\n"
+      "4. Divide\n")
+
+sel = int(input("Select operation (1-4): "))
+
+n1 = int(input("Enter first number: "))
+n2 = int(input("Enter second number: "))
+
+if sel == 1:                             # sel means selection; it's not a built in programme but rather a custom variable that is chosen by the programmer
+    print(n1, "+", n2, "=", add(n1, n2)) # type: ignore
+elif sel == 2:
+    print(n1, "-", n2, "=",sub(n1, n2))  # type: ignore
+elif sel == 3:
+    print(n1, "*", n2, "=",mul(n1, n2))
+elif sel == 4:
+    print(n1, "/", n2, "=", div(n1, n2)) # type: ignore
+else:
+    print("Invalid input")
